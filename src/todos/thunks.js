@@ -1,10 +1,10 @@
 import {
     createTodo,
     removeTodo,
-    markTodoAsCompleted,
     loadTodosInProgress,
     loadTodosSuccess,
     loadTodosFailure,
+    markTodoAsCompleted,
 } from './actions';
 
 export const loadTodos = () => async (dispatch, getState) => {
@@ -49,7 +49,7 @@ export const removeTodoRequest = id => async dispatch => {
     }
 }
 
-export const updateTodoRequest = id => async dispatch => {
+export const markTodoAsCompletedRequest = id => async dispatch => {
     try {
         const response = await fetch(`http://localhost:8080/todos/${id}/completed`, {
             method: 'post'

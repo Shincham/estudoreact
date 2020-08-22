@@ -34,10 +34,10 @@ export const todos = (state = [], action) => {
         return state.filter(todo => todo.id !== todoToRemove.id);
     }
     case MARK_TODO_AS_COMPLETED: {
-        const { todo: todoToUpdate } = payload;
+        const { todo: updatedTodo } = payload;
         return state.map(todo => {
-            if (todo.id === todoToUpdate.id) {
-                return { ...todo, isCompleted: true };
+            if (todo.id === updatedTodo.id) {
+                return updatedTodo;
             }
             return todo;
         });
